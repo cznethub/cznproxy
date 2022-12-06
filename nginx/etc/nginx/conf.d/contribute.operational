@@ -1,9 +1,9 @@
 upstream dspfront {
-    server backend-xx-czn.example.org:5001;
+    server backend-xx-czn.example.org:xxxx;
 }
 
 upstream dspback {
-    server backend-xx-czn.example.org:5002;
+    server backend-xx-czn.example.org:xxxx;
 }
 
 server {

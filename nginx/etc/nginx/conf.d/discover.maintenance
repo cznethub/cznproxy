@@ -1,7 +1,7 @@
 server {
     listen      80;
     listen      [::]:80;
-    server_name discover-xxx.criticalzone.org;
+    server_name discover-dev.criticalzone.org;
 
     # Redirect all HTTP requests to HTTPS
     location / {
@@ -14,20 +14,20 @@ server {
 server {
     listen      80;
     listen      [::]:80;
-    server_name cdp-xxx.criticalzone.org;
+    server_name cdp-dev.criticalzone.org;
 
     # Redirect all HTTP dev requests to HTTPS contribute
     location / {
-        return 301 https://discover-xxx.criticalzone.org$request_uri;
+        return 301 https://discover-dev.criticalzone.org$request_uri;
     }
 
-    # rewrite ^/(.*)  https://discover-xxx.criticalzone.org/$1 permanent;
+    # rewrite ^/(.*)  https://discover-dev.criticalzone.org/$1 permanent;
 }
 
 server {
     listen       443 ssl;
     listen       [::]:443 ssl;
-    server_name  cdp-xxx.criticalzone.org;
+    server_name  cdp-dev.criticalzone.org;
 
     ssl_certificate           /etc/ssl/ssl.pem;
     ssl_certificate_key       /etc/ssl/ssl.key;
@@ -38,16 +38,16 @@ server {
 
     # Redirect all dev requests to contribute
     location / {
-        return 301 https://discover-xxx.criticalzone.org$request_uri;
+        return 301 https://discover-dev.criticalzone.org$request_uri;
     }
 
-    # rewrite ^/(.*)  https://discover-xxx.criticalzone.org/$1 permanent;
+    # rewrite ^/(.*)  https://discover-dev.criticalzone.org/$1 permanent;
 }
 
 server {
     listen       443 ssl;
     listen       [::]:443 ssl;
-    server_name  discover-xxx.criticalzone.org;
+    server_name  discover-dev.criticalzone.org;
 
     ssl_certificate           /etc/ssl/ssl.pem;
     ssl_certificate_key       /etc/ssl/ssl.key;
@@ -58,7 +58,7 @@ server {
 
     location / {
         root   /var/www/html;
-        index  maintenance.html;
+        index  discover-maintenance.html;
     } 
 
     # redirect server error pages to the static page /50x.html

@@ -1,7 +1,7 @@
 server {
     listen      80;
     listen      [::]:80;
-    server_name contribute-dev.criticalzone.org;
+    server_name contribute-xxx.criticalzone.org;
 
     # Redirect all HTTP requests to HTTPS
     location / {
@@ -14,20 +14,20 @@ server {
 server {
     listen      80;
     listen      [::]:80;
-    server_name dsp-dev.criticalzone.org;
+    server_name dsp-xxx.criticalzone.org;
 
     # Redirect all HTTP dev requests to HTTPS contribute
     location / {
-        return 301 https://contribute-dev.criticalzone.org$request_uri;
+        return 301 https://contribute-xxx.criticalzone.org$request_uri;
     }
 
-    # rewrite ^/(.*)  https://contribute-dev.criticalzone.org/$1 permanent;
+    # rewrite ^/(.*)  https://contribute-xxx.criticalzone.org/$1 permanent;
 }
 
 server {
     listen       443 ssl;
     listen       [::]:443 ssl;
-    server_name  dsp-dev.criticalzone.org;
+    server_name  dsp-xxx.criticalzone.org;
 
     ssl_certificate           /etc/ssl/ssl.pem;
     ssl_certificate_key       /etc/ssl/ssl.key;
@@ -38,16 +38,16 @@ server {
 
     # Redirect all dev requests to contribute
     location / {
-        return 301 https://contribute-dev.criticalzone.org$request_uri;
+        return 301 https://contribute-xxx.criticalzone.org$request_uri;
     }
 
-    # rewrite ^/(.*)  https://contribute-dev.criticalzone.org/$1 permanent;
+    # rewrite ^/(.*)  https://contribute-xxx.criticalzone.org/$1 permanent;
 }
 
 server {
     listen       443 ssl;
     listen       [::]:443 ssl;
-    server_name  contribute-dev.criticalzone.org;
+    server_name  contribute-xxx.criticalzone.org;
 
     ssl_certificate           /etc/ssl/ssl.pem;
     ssl_certificate_key       /etc/ssl/ssl.key;
